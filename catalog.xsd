@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+    
+    <!-- Root element -->
+    <xs:element name="catalogue">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="genres"/>
+                <xs:element ref="applicationDomains"/>
+                <xs:element ref="sectors"/>
+                <xs:element ref="platforms"/>
+                <xs:element ref="games"/>
+            </xs:sequence>
+        </xs:complexType>
+        
+        <!-- KEYS -->
+        <xs:key name="genreKey">
+            <xs:selector xpath="genres/genre"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+        
+        <xs:key name="applicationDomainKey">
+            <xs:selector xpath="applicationDomains/applicationDomain"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+        
+        <xs:key name="sectorKey">
+            <xs:selector xpath="sectors/sector"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+        
+        <xs:key name="platformKey">
+            <xs:selector xpath="platforms/platform"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+        
+        <!-- KEY REFERENCES -->
+        <xs:keyref name="gameGenreRef" refer="genreKey">
+            <xs:selector xpath="games/game"/>
+            <xs:field xpath="@genre"/>
+        </xs:keyref>
+        
+        <xs:keyref name="gameApplicationDomainRef" refer="applicationDomainKey">
+            <xs:selector xpath="games/game"/>
+            <xs:field xpath="@applicationDomain"/>
+        </xs:keyref>
+        
+        <xs:keyref name="gameSectorRef" refer="sectorKey">
+            <xs:selector xpath="games/game"/>
+            <xs:field xpath="@sector"/>
+        </xs:keyref>
+        
+        <xs:keyref name="gamePlatformRef" refer="platformKey">
+            <xs:selector xpath="games/game/platformRefs/platformRef"/>
+            <xs:field xpath="@ref"/>
+        </xs:keyref>
+        
+    </xs:element>
+    
+    <!-- GENRES -->
+    <xs:element name="genres">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="description" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- APPLICATION DOMAINS -->
+    <xs:element name="applicationDomains">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="applicationDomain" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="description" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- SECTORS -->
+    <xs:element name="sectors">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sector" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="description" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- PLATFORMS -->
+    <xs:element name="platforms">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="platform" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- GAMES -->
+    <xs:element name="games">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="game" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="title" type="xs:string"/>
+                            <xs:element name="year" type="xs:gYear"/>
+                            <xs:element name="description" type="xs:string"/>
+                            <xs:element name="targetAudience" type="xs:string"/>
+                            <xs:element name="learningGoals">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="goal" type="xs:string" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="rating" type="xs:decimal"/>
+                            <xs:element name="platformRefs">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="platformRef" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="ref" type="xs:IDREF" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="thumbnail">
+                                <xs:complexType>
+                                    <xs:attribute name="source" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        
+                        <xs:attribute name="id" type="xs:ID" use="required"/>
+                        <xs:attribute name="genre" type="xs:IDREF" use="required"/>
+                        <xs:attribute name="applicationDomain" type="xs:IDREF" use="required"/>
+                        <xs:attribute name="sector" type="xs:IDREF" use="required"/>
+                        
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

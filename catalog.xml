@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="catalog.xsl"?>
+
+<!DOCTYPE catalogue [
+    <!NOTATION jpeg SYSTEM "image/jpeg">
+    <!ENTITY img_minecraft_education SYSTEM "images/minecraft_education.jpg" NDATA jpeg>
+    <!ENTITY img_kerbal SYSTEM "images/kerbal_space_program.jpg" NDATA jpeg>
+    <!ENTITY img_acdt SYSTEM "images/assassins_creed_discovery_tour.jpg" NDATA jpeg>
+    <!ENTITY img_never_alone SYSTEM "images/never_alone.jpg" NDATA jpeg>
+    <!ENTITY img_remission SYSTEM "images/re_mission.jpg" NDATA jpeg>
+    <!ENTITY img_foldit SYSTEM "images/foldit.jpg" NDATA jpeg>
+    <!ENTITY img_americas_army SYSTEM "images/americas_army.jpg" NDATA jpeg>
+    <!ENTITY img_peacemaker SYSTEM "images/peacemaker.jpg" NDATA jpeg>
+]>
+
+<catalogue
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="catalog.xsd">
+    
+    <genres>
+        <genre id="g_education">
+            <name>Games for Education</name>
+            <description>Serious games for formal and informal learning</description>
+        </genre>
+        
+        <genre id="g_health">
+            <name>Games for Health</name>
+            <description>Serious games for healthcare and rehabilitation</description>
+        </genre>
+        
+        <genre id="g_culture">
+            <name>Games for Culture</name>
+            <description>Games for cultural heritage and identity</description>
+        </genre>
+        
+        <genre id="g_government">
+            <name>Games for Government and Military</name>
+            <description>Games for public policy, military and defense training</description>
+        </genre>
+    </genres>
+    
+    <applicationDomains>
+        <applicationDomain id="ad_education">
+            <name>Education</name>
+            <description>Educational and learning applications</description>
+        </applicationDomain>
+        
+        <applicationDomain id="ad_health">
+            <name>Healthcare</name>
+            <description>Medical and health-related applications</description>
+        </applicationDomain>
+        
+        <applicationDomain id="ad_culture">
+            <name>Cultural Heritage</name>
+            <description>Cultural heritage and historical education</description>
+        </applicationDomain>
+        
+        <applicationDomain id="ad_government">
+            <name>Public Policy and Defense</name>
+            <description>Governmental, military and policy simulations</description>
+        </applicationDomain>
+    </applicationDomains>
+    
+    <sectors>
+        <sector id="s_edu">
+            <name>Education</name>
+            <description>Formal and informal education sector</description>
+        </sector>
+        
+        <sector id="s_public">
+            <name>Public Policy and Defense</name>
+            <description>Governmental and military sector</description>
+        </sector>
+    </sectors>
+    
+    <platforms>
+        <platform id="p_pc">
+            <name>PC</name>
+        </platform>
+        
+        <platform id="p_web">
+            <name>Web</name>
+        </platform>
+        
+        <platform id="p_mobile">
+            <name>Mobile</name>
+        </platform>
+    </platforms>
+    
+    <games>
+        <game id="game01"
+              genre="g_education"
+              applicationDomain="ad_education"
+              sector="s_edu">
+            
+            <title>Minecraft: Education Edition</title>
+            <year>2016</year>
+            
+            <description>
+                Educational version of Minecraft designed for classroom learning and STEM education.
+            </description>
+            
+            <targetAudience>Students and teachers</targetAudience>
+            
+            <learningGoals>
+                <goal>Problem solving</goal>
+                <goal>Collaboration</goal>
+                <goal>STEM education</goal>
+            </learningGoals>
+            
+            <rating>4.8</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_pc"/>
+                <platformRef ref="p_web"/>
+            </platformRefs>
+            
+            <thumbnail source="minecraft_education.jpg"/>
+        </game>
+        
+        <game id="game02"
+              genre="g_education"
+              applicationDomain="ad_education"
+              sector="s_edu">
+            
+            <title>Kerbal Space Program</title>
+            <year>2015</year>
+            
+            <description>
+                Space flight simulation game used to teach physics, engineering and orbital mechanics.
+            </description>
+            
+            <targetAudience>Students and enthusiasts</targetAudience>
+            
+            <learningGoals>
+                <goal>Physics principles</goal>
+                <goal>Engineering thinking</goal>
+            </learningGoals>
+            
+            <rating>4.7</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_pc"/>
+            </platformRefs>
+            
+            <thumbnail source="kerbal_space_program.jpg"/>
+        </game>
+        
+        <game id="game03"
+              genre="g_culture"
+              applicationDomain="ad_culture"
+              sector="s_edu">
+            
+            <title>Assassin’s Creed: Discovery Tour</title>
+            <year>2018</year>
+            
+            <description>
+                Interactive educational mode exploring ancient civilizations through guided tours.
+            </description>
+            
+            <targetAudience>Students and general public</targetAudience>
+            
+            <learningGoals>
+                <goal>Historical understanding</goal>
+                <goal>Cultural heritage awareness</goal>
+            </learningGoals>
+            
+            <rating>4.9</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_pc"/>
+            </platformRefs>
+            
+            <thumbnail source="assassins_creed_discovery_tour.jpg"/>
+        </game>
+        
+        <game id="game04"
+              genre="g_culture"
+              applicationDomain="ad_culture"
+              sector="s_edu">
+            
+            <title>Never Alone (Kisima Ingitchuna)</title>
+            <year>2014</year>
+            
+            <description>
+                Cultural game based on Iñupiat indigenous stories and traditions.
+            </description>
+            
+            <targetAudience>General audience</targetAudience>
+            
+            <learningGoals>
+                <goal>Cultural identity</goal>
+                <goal>Storytelling</goal>
+            </learningGoals>
+            
+            <rating>4.6</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_pc"/>
+            </platformRefs>
+            
+            <thumbnail source="never_alone.jpg"/>
+        </game>
+        
+        <game id="game05"
+              genre="g_health"
+              applicationDomain="ad_health"
+              sector="s_edu">
+            
+            <title>Re-Mission</title>
+            <year>2006</year>
+            
+            <description>
+                Game designed to help young cancer patients understand treatment and improve adherence.
+            </description>
+            
+            <targetAudience>Young patients</targetAudience>
+            
+            <learningGoals>
+                <goal>Health awareness</goal>
+                <goal>Treatment understanding</goal>
+            </learningGoals>
+            
+            <rating>4.5</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_pc"/>
+                <platformRef ref="p_mobile"/>
+            </platformRefs>
+            
+            <thumbnail source="re_mission.jpg"/>
+        </game>
+        
+        <game id="game06"
+              genre="g_health"
+              applicationDomain="ad_health"
+              sector="s_edu">
+            
+            <title>Foldit</title>
+            <year>2008</year>
+            
+            <description>
+                Online puzzle game that allows players to contribute to scientific research in biology.
+            </description>
+            
+            <targetAudience>General public</targetAudience>
+            
+            <learningGoals>
+                <goal>Scientific problem solving</goal>
+                <goal>Biological understanding</goal>
+            </learningGoals>
+            
+            <rating>4.4</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_web"/>
+            </platformRefs>
+            
+            <thumbnail source="foldit.jpg"/>
+        </game>
+        
+        <game id="game07"
+              genre="g_government"
+              applicationDomain="ad_government"
+              sector="s_public">
+            
+            <title>America’s Army</title>
+            <year>2002</year>
+            
+            <description>
+                Military training and recruitment game developed by the U.S. Army.
+            </description>
+            
+            <targetAudience>Young adults</targetAudience>
+            
+            <learningGoals>
+                <goal>Team coordination</goal>
+                <goal>Military ethics</goal>
+            </learningGoals>
+            
+            <rating>4.3</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_pc"/>
+            </platformRefs>
+            
+            <thumbnail source="americas_army.jpg"/>
+        </game>
+        
+        <game id="game08"
+              genre="g_government"
+              applicationDomain="ad_government"
+              sector="s_public">
+            
+            <title>Peacemaker</title>
+            <year>2007</year>
+            
+            <description>
+                Simulation game focused on resolving the Israeli-Palestinian conflict through diplomacy.
+            </description>
+            
+            <targetAudience>Students and policy learners</targetAudience>
+            
+            <learningGoals>
+                <goal>Conflict resolution</goal>
+                <goal>Political decision making</goal>
+            </learningGoals>
+            
+            <rating>4.2</rating>
+            
+            <platformRefs>
+                <platformRef ref="p_web"/>
+            </platformRefs>
+            
+            <thumbnail source="peacemaker.jpg"/>
+        </game>
+    </games>
+
+</catalogue>

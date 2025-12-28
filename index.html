@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Serious Games Catalogue</title>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <style>
+    body { font-family: Arial; margin: 40px; }
+
+    .nav {
+      margin-bottom: 20px;
+    }
+
+    .nav button {
+      margin-right: 10px;
+      padding: 8px 14px;
+      border: 1px solid #444;
+      background: #f5f5f5;
+      cursor: pointer;
+    }
+
+    .nav button.active {
+      background: #444;
+      color: white;
+    }
+
+    .game {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 200px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .filters {
+      margin-bottom: 20px;
+    }
+
+    .filters > * {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Serious Games Catalogue</h1>
+
+<!-- VISUAL NAVIGATION (SECTOR) -->
+<div class="nav" id="sectorNav"></div>
+
+<!-- FILTERS + SORT -->
+<div class="filters">
+  <input type="text" id="searchInput" placeholder="Search by title">
+
+  <select id="genreFilter">
+    <option value="">All genres</option>
+  </select>
+
+  <select id="domainFilter">
+    <option value="">All application domains</option>
+  </select>
+
+  <select id="platformFilter">
+    <option value="">All platforms</option>
+  </select>
+
+  <select id="sortFilter">
+    <option value="">No sorting</option>
+    <option value="title-asc">Title (A → Z)</option>
+    <option value="title-desc">Title (Z → A)</option>
+    <option value="rating-desc">Rating (High → Low)</option>
+    <option value="rating-asc">Rating (Low → High)</option>
+  </select>
+</div>
+
+<hr>
+
+<div id="games"></div>
+
+<h2>Games per Genre</h2>
+<svg id="genreChart" width="500" height="300"></svg>
+
+<script src="script.js"></script>
+</body>
+</html>
